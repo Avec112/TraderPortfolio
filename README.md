@@ -1,13 +1,19 @@
 # TraderPortfolio
-[www.investtech.no](www.investtech.no) has a trader portfolio put up based on their analysis and their tools for technical analysis. This portfolio have done quite well
-since the beginning 2002. Since then the portfolio is up almost 25000% (after commision) compared to OSEBX 405%
+The site [www.investtech.no](www.investtech.no) (commercial) has a trader portfolio put up based on their analysis skills and their tools for technical analysis. This portfolio have done quite well
+since the beginning dec 2002. Since then the portfolio is up almost 25000% (after commision) compared to OSEBX 405%.
 
-Investtech however does not provide a notification service for changes done to the portfolio. 
+Investtech however does not provide a notification service for changes done to the portfolio and that gave me the idea of creating av service for myself.
 
-I have made an applications that triggers a method taking a "snapshot" of current portfolio status (changes) so you as an investor can buy and sell
-the stocks in the portfolio more or less at the same time as Investtech.
+I have made an applications that triggers a method taking a "snapshot" of current portfolio status every half hour during daytime so you as an investor can buy and sell
+the stocks in the portfolio more or less at the same time as Investtech updates it.
 
-Note! The Trader portfolio has a high risk so you have to deside if this is something for you. 
+Disclamer! The Trader portfolio has a high risk so you have to deside if this is something for you.
+> In investechs own words: The aim of the trader portfolio is to show how investors can achieve a good return by using Investtechs analyzes. The portfolio is designed for active investors with a high risk tolerance.
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=T0oDl32vlJ8
+" target="_blank"><img src="http://img.youtube.com/vi/T0oDl32vlJ8/0.jpg" 
+alt="Strategy Trader Portfolio" width="480" height="320" border="10" /></a>
+
 
 ## Trader portfolio results period between 2012 and 2015 (14 dec)
 Comparison | 2015| 2014 | 2013 | 2012
@@ -45,6 +51,21 @@ gmail.password=
 # Twitter (without the @)
 twitter.recipientId=
 ```
+
+## Twitter config
+In addition to `twitter.recipientId=` you must give access for the application to access twitter (sending message). 
+Go to the url [https://apps.twitter.com] and register the app and get a hold of some needed propertes. Add these properties to the file `twitter4j.properties`found in the same directory `[traderportfolio]/src/main/resources`
+
+```
+debug=false
+
+# Create APP access here https://apps.twitter.com
+oauth.consumerKey=
+oauth.consumerSecret=
+oauth.accessToken=
+oauth.accessTokenSecret=
+```
+
 
 ## Start application
 After you have configured the application it is time to run it. 
