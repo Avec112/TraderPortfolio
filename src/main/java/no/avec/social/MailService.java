@@ -1,30 +1,33 @@
 package no.avec.social;
 
-import org.apache.commons.mail.*;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.Charset;
-
 /**
- * Created by ronny.ness on 11/12/15.
+ * Created by avec on 11/12/15.
  */
 @Component
 public class MailService {
 
-    @Value("${username}")
+    private Logger LOG = LoggerFactory.getLogger(this.getClass());
+
+    @Value("${gmail.username}")
     private String username;
 
-    @Value("${password}")
+    @Value("${gmail.password}")
     private String password;
 
-    @Value("${from}")
+    @Value("${mail.from}")
     private String from;
 
-    @Value("${to}")
+    @Value("${mail.to}")
     private String[] to;
 
-    @Value("${subject}")
+    @Value("${mail.subject}")
     private String subject;
 
 
@@ -35,12 +38,12 @@ public class MailService {
         email.setAuthentication(username, password);
         email.setStartTLSEnabled(true);
         email.setFrom(from);
-//        email.setCharset("ISO-8859-1");
         email.setSubject(subject);
         email.setHtmlMsg(msg);
-//        email.setTextMsg(msg);
         email.addTo(to);
         email.send();
+
+        LOG.debug("Mail sendt");
     }
 
 }

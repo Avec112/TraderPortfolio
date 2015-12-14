@@ -1,11 +1,10 @@
 package no.avec.domain;
 
-import j2html.TagCreator;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
- * Created by ronny.ness on 13/12/15.
+ * Created by avec on 13/12/15.
  */
 public class HtmlMessageTest extends TestCase {
 
