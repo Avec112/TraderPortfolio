@@ -1,44 +1,31 @@
 package no.avec;
 
-import no.avec.domain.Aksje;
-import no.avec.service.Traderportfolio;
-import org.quartz.*;
-import org.quartz.impl.StdSchedulerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-import java.util.ArrayList;
-
-import static org.quartz.CronScheduleBuilder.cronSchedule;
-import static org.quartz.JobBuilder.newJob;
-import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * Created by ronny.ness on 11/12/15.
  */
+
+@SpringBootApplication
+@EnableScheduling
 public class Application {
-    public static void main(String[] args) throws SchedulerException {
-        SchedulerFactory sf = new StdSchedulerFactory();
-        Scheduler sched = sf.getScheduler();
 
-        JobDetail job = newJob(Traderportfolio.class)
-                .withIdentity("job1", "group1")
-                .build();
+    private Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-        job.getJobDataMap().put(Traderportfolio.PORTFOLIO, new ArrayList<Aksje>());
+//    @Autowired
+//    private PortfolioService portfolioService;
 
 
-        CronTrigger trigger = newTrigger()
-                .withIdentity("trigger1", "group1")
-//                .withSchedule(cronSchedule("0 0 * * * ?"))
-                .withSchedule(cronSchedule("0/30 * * * * ?"))
-                .withSchedule(cronSchedule("0 0/30 7-17 ? * MON-FRI"))
-                .withSchedule(cronSchedule("0 0 17 ? * SUN"))
-                .build();
-
-        // Tell quartz to schedule the job using our trigger
-        sched.scheduleJob(job, trigger);
-
-        sched.start();
-
-
+    public static void main(String[] args) {
+        SpringApplication application = new SpringApplication(
+                Application.class);
+        application.setApplicationContextClass(AnnotationConfigApplicationContext.class);
+        SpringApplication.run(Application.class, args);
     }
 }
