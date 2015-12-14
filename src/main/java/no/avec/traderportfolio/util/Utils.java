@@ -1,4 +1,4 @@
-package no.avec.util;
+package no.avec.traderportfolio.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package no.avec.domain;
+package no.avec.traderportfolio.domain;
 
 import java.util.Date;
 import java.util.List;
@@ -25,23 +25,12 @@ public class StockBought {
         return date;
     }
 
-    public void setDato(String dato) {
-        this.date = date;
-    }
-
     public String getKurs() {
         return kurs;
-    }
-
-    public void setRetProsent(String kurs) {
-        this.kurs = kurs;
     }
 
     public List<String> getStocks() {
         return stocks;
     }
 
-    public void setStocks(List<String> stocks) {
-        this.stocks = stocks;
-    }
 }

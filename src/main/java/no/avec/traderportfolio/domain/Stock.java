@@ -1,10 +1,9 @@
-package no.avec.domain;
+package no.avec.traderportfolio.domain;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -18,19 +17,19 @@ public class Stock {
     private String info; // May contain "ny" same day as bought
     private String buyPrice;
     private String sellPrice;
-    private String prosentEndring;
+    private String changeInPercent;
 
     public Stock() {
     }
 
-    public Stock(String name, String companyId, Date date, String info, String buyPrice, String sellPrice, String prosentEndring) throws ParseException {
+    public Stock(String name, String companyId, Date date, String info, String buyPrice, String sellPrice, String changeInPercent) {
         this.name = name;
         this.companyId = companyId;
         this.date = date;
         this.info = info;
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
-        this.prosentEndring = prosentEndring;
+        this.changeInPercent = changeInPercent;
     }
 
     public String getName() {
@@ -53,7 +52,7 @@ public class Stock {
         return date;
     }
 
-    public void setDate(Date date) throws ParseException {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -81,12 +80,12 @@ public class Stock {
         this.sellPrice = sellPrice;
     }
 
-    public String getProsentEndring() {
-        return prosentEndring;
+    public String getChangeInPercent() {
+        return changeInPercent;
     }
 
-    public void setProsentEndring(String prosentEndring) {
-        this.prosentEndring = prosentEndring;
+    public void setChangeInPercent(String changeInPercent) {
+        this.changeInPercent = changeInPercent;
     }
 
     @Override
@@ -98,7 +97,7 @@ public class Stock {
                 .append("info", info)
                 .append("buyPrice", buyPrice)
                 .append("sellPrice", sellPrice)
-                .append("prosentEndring", prosentEndring)
+                .append("changeInPercent", changeInPercent)
                 .toString();
     }
 

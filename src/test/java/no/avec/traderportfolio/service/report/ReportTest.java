@@ -1,10 +1,10 @@
-package no.avec.report;
+package no.avec.traderportfolio.service.report;
 
 import junit.framework.TestCase;
-import no.avec.Application;
-import no.avec.domain.Stock;
-import no.avec.domain.StockBought;
-import no.avec.util.Utils;
+import no.avec.traderportfolio.Application;
+import no.avec.traderportfolio.domain.Stock;
+import no.avec.traderportfolio.domain.StockBought;
+import no.avec.traderportfolio.util.Utils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

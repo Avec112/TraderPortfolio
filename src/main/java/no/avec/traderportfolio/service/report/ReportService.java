@@ -1,8 +1,9 @@
-package no.avec.report;
+package no.avec.traderportfolio.service.report;
 
-import no.avec.domain.Stock;
-import no.avec.domain.StockBought;
-import no.avec.util.Utils;
+
+import no.avec.traderportfolio.domain.Stock;
+import no.avec.traderportfolio.domain.StockBought;
+import no.avec.traderportfolio.util.Utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -37,14 +38,6 @@ public class ReportService {
     public ReportService() {
     }
 
-/*    public ReportService(String portfolioFormat, String portfolioHistoryFormat, String portfolio_labels, String portfolio_history_labels) {
-        this.portfolioFormat = portfolioFormat;
-        this.portfolioHistoryFormat = portfolioHistoryFormat;
-        this.portfolio_labels = portfolio_labels;
-        this.portfolio_history_labels = portfolio_history_labels;
-        init();
-    }*/
-
     @PostConstruct
     public void init() {
         for(int i = 0; i < calculateTableWidth(portfolioFormat); i++) {
@@ -61,7 +54,7 @@ public class ReportService {
     public String formatStockBuyHistoryAsString(List<StockBought> buys, String dateFormat) {
         StringBuilder sb = new StringBuilder()
                 .append(PORTFOLIO_HISTORY_FORMAT_SEPARATOR)
-                .append(String.format(portfolioHistoryFormat,portfolio_history_labels))
+                .append(String.format(portfolioHistoryFormat, portfolio_history_labels))
                 .append(PORTFOLIO_HISTORY_FORMAT_SEPARATOR);
 
         for(StockBought buy : buys) {
@@ -99,7 +92,7 @@ public class ReportService {
                             Utils.formatDate(stock.getDate(), dateFormat),
                             stock.getBuyPrice(),
                             stock.getSellPrice(),
-                            stock.getProsentEndring()
+                            stock.getChangeInPercent()
                     )
             );
         }

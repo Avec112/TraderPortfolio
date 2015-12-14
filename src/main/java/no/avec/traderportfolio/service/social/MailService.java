@@ -1,4 +1,4 @@
-package no.avec.social;
+package no.avec.traderportfolio.service.social;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MailService {
 
-    private Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Value("${gmail.username}")
     private String username;

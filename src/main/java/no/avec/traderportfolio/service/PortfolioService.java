@@ -1,13 +1,13 @@
-package no.avec.service;
+package no.avec.traderportfolio.service;
 
-import no.avec.domain.HtmlMessage;
-import no.avec.domain.Stock;
-import no.avec.domain.StockBought;
-import no.avec.domain.StockSold;
-import no.avec.report.ReportService;
-import no.avec.social.MailService;
-import no.avec.social.TwitterService;
-import no.avec.util.Utils;
+import no.avec.traderportfolio.domain.HtmlMessage;
+import no.avec.traderportfolio.domain.Stock;
+import no.avec.traderportfolio.domain.StockBought;
+import no.avec.traderportfolio.domain.StockSold;
+import no.avec.traderportfolio.service.report.ReportService;
+import no.avec.traderportfolio.service.social.MailService;
+import no.avec.traderportfolio.service.social.TwitterService;
+import no.avec.traderportfolio.util.Utils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -38,7 +38,7 @@ import java.util.*;
 @Service
 public class PortfolioService  {
 
-    private Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private MailService mailService;
@@ -132,7 +132,7 @@ public class PortfolioService  {
                         .h1("Porteføljens historikk (20 siste dager)")
                         .pre(reportService.formatStockBuyHistoryAsString(stockBoughts, dateFormat))
                         .build();
-                 ;
+
                 mailService.send(htmlMessage.render());
             }
 
@@ -197,7 +197,7 @@ public class PortfolioService  {
         return currentPortfolio;
     }
 
-    private List<StockSold> getStocksSold(Map<String,String> cookies) throws IOException, ParseException {
+    private List<StockSold> getStocksSold(Map<String,String> cookies) throws IOException {
 
         Document traderportfolio = getTraderportfolioDocument(cookies);
 

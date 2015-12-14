@@ -1,4 +1,4 @@
-package no.avec.domain;
+package no.avec.traderportfolio.domain;
 
 import j2html.TagCreator;
 import j2html.tags.ContainerTag;
@@ -21,7 +21,7 @@ public class HtmlMessage {
 
     public static class HtmlMessageBuilder {
 
-        private ContainerTag ct;
+        private final ContainerTag ct;
 
         public HtmlMessageBuilder() {
             ct = TagCreator.html();

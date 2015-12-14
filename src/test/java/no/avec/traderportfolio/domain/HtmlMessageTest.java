@@ -1,4 +1,4 @@
-package no.avec.domain;
+package no.avec.traderportfolio.domain;
 
 import junit.framework.TestCase;
 import org.junit.Test;

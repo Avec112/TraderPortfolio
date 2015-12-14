@@ -82,9 +82,9 @@ When the application starts you should see something like
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v1.3.0.RELEASE)
 
-19:29:28.597 [no.avec.Application.main()] INFO  no.avec.Application - Starting Application on ducati.local with PID 40688
-19:29:28.598 [no.avec.Application.main()] INFO  no.avec.Application - The following profiles are active: prod
-19:29:29.274 [no.avec.Application.main()] INFO  no.avec.Application - Started Application in 0.814 seconds (JVM running for 5.099)
+19:29:28.597 [no.avec.Application.main()] INFO  no.avec.traderportfolio.Application - Starting Application on ducati.local with PID 40688
+19:29:28.598 [no.avec.Application.main()] INFO  no.avec.traderportfolio.Application - The following profiles are active: prod
+19:29:29.274 [no.avec.Application.main()] INFO  no.avec.traderportfolio.Application - Started Application in 0.814 seconds (JVM running for 5.099)
 ```
 
 
